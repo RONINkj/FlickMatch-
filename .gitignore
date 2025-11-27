@@ -1,5 +1,38 @@
+# --- Global ignores for FlickMatch monorepo ---
+
+# Python / FastAPI
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
 env/
+venv/
+.env
+.env.*
+
+# Build / cache
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Node / Vite / React
+node_modules/
+dist/
+build/
+.vite/
+*.tsbuildinfo
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
 *.pkl
 *.npz
 *.joblib
-.env

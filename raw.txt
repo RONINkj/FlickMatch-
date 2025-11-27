@@ -1,8 +1,0 @@
-# genres
-# id
-# keywords
-# title
-# overview
-# release_date
-# cast
-# crew
