@@ -406,7 +406,7 @@ export default function PosterWall({
 
     // fetch a page (limit + offset)
     async function fetchPage(limit, offset) {
-        const url = `${API_BASE}/api/wall-movies?limit=${limit}&offset=${offset}`;
+        const url = `${API_BASE}/wall-movies?limit=${limit}&offset=${offset}`;
         const res = await fetch(url, { headers: { Accept: "application/json" } });
         return res;
     }
