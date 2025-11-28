@@ -41,7 +41,8 @@
 // src/api/flickmatch.js
 
 // Updated to use the deployed backend URL (Render)
-const BASE_URL = import.meta.env.VITE_API_URL || "https://flickmatch-backend.onrender.com";
+const BASE_URL = import.meta.env.VITE_API_URL || "https://flickmatch-backend.onrender.com/api";
+
 
 export async function getRecommendations(title) {
     const url = `${BASE_URL}/recommend?title=${encodeURIComponent(title)}`;
