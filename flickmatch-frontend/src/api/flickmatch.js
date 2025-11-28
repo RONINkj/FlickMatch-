@@ -1,16 +1,18 @@
 // // src/api/flickmatch.js
 
-// const BASE_URL = "http://127.0.0.1:8000";
+// // Updated to use the deployed backend URL (Render)
+// const BASE_URL = import.meta.env.VITE_API_URL || "https://flickmatch-backend.onrender.com/api";
+
 
 // export async function getRecommendations(title) {
-//     const url = `${BASE_URL}/api/recommend?title=${encodeURIComponent(title)}`;
+//     const url = `${BASE_URL}/recommend?title=${encodeURIComponent(title)}`;
 
 //     const res = await fetch(url, {
 //         method: "GET",
 //     });
 
 //     if (!res.ok) {
-//         throw new Error(`HTTP ${res.status} from /api/recommend`);
+//         throw new Error(`HTTP ${res.status} from /recommend`);
 //     }
 
 //     const data = await res.json();
@@ -23,14 +25,14 @@
 //         throw new Error("movieId is required for getMovieDetails");
 //     }
 
-//     const url = `${BASE_URL}/api/movie/${movieId}`;
+//     const url = `${BASE_URL}/movie/${movieId}`;
 
 //     const res = await fetch(url, {
 //         method: "GET",
 //     });
 
 //     if (!res.ok) {
-//         throw new Error(`HTTP ${res.status} from /api/movie/${movieId}`);
+//         throw new Error(`HTTP ${res.status} from /movie/${movieId}`);
 //     }
 
 //     const data = await res.json();
@@ -38,11 +40,17 @@
 //     return data;
 // }
 
+
 // src/api/flickmatch.js
 
-// Updated to use the deployed backend URL (Render)
-const BASE_URL = import.meta.env.VITE_API_URL || "https://flickmatch-backend.onrender.com/api";
+// Ensure BASE_URL always points to the FastAPI "/api" root,
+// regardless of whether VITE_API_URL includes "/api" or not.
+const RAW_BASE_URL =
+    import.meta.env.VITE_API_URL || "https://flickmatch-backend.onrender.com";
 
+const BASE_URL = RAW_BASE_URL.endsWith("/api")
+    ? RAW_BASE_URL
+    : `${RAW_BASE_URL}/api`;
 
 export async function getRecommendations(title) {
     const url = `${BASE_URL}/recommend?title=${encodeURIComponent(title)}`;
