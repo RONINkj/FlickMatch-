@@ -21,7 +21,8 @@ export default function PosterWall({
     const PAGE_SIZE = 200; // request pages of this size
     const PAGE_INTERVAL = 250; // ms between page fetches
     const DESIRED_TOTAL = 4802; // ideal if possible
-    const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
+    const API_BASE = import.meta.env.VITE_API_URL || "https://flickmatch-backend.onrender.com/api";
+;
 
     // cache + offsets for pagination/shuffle
     const fetchedOffsets = useRef(new Set());
