@@ -1,14 +1,20 @@
-# --- Global ignores for FlickMatch monorepo ---
+# ================================
+# FlickMatch Monorepo .gitignore
+# Backend (FastAPI) + Frontend (Vite React)
+# ================================
 
-# Python / FastAPI
+# ---- Python / FastAPI ----
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-*.log
 
 env/
 venv/
+.venv/
+*.log
+
+# Local environment files
 .env
 .env.*
 
@@ -17,22 +23,22 @@ venv/
 .pytest_cache/
 .mypy_cache/
 
-# Node / Vite / React
+# ---- Node / Vite / React ----
 node_modules/
 dist/
 build/
 .vite/
 *.tsbuildinfo
 
-# IDE / editor
+# ---- OS / IDE files ----
 .vscode/
 .idea/
-*.swp
-
-# OS
 .DS_Store
 Thumbs.db
 
+# ---- Model / ML large files ----
+# These MUST remain here. Git will ignore them *normally*,
+# but since Git LFS tracks *.pkl, they will still be committed via LFS.
 *.pkl
 *.npz
 *.joblib
